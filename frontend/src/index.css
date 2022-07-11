@@ -1,13 +1,188 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/*
+font-family: 'Poppins', sans-serif;
+font-family: 'Roboto', sans-serif
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body, html {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color:  #13121b;
+    color: #fff;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(180deg, #102347 0%, #181818 100%);
+    width: 100vw;
+    height: 220px;
+}
+
+.header img {
+    width: 250px;
+    margin: 28px 42px 14px 42px;
+}
+
+.header h1 {
+    color: #ffffff;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.header p {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    color: #ffffff;
+    line-height: 16px;
+    margin-top: 6px;
+    margin-bottom: 28px;
+}
+
+.header a, a:hover, a:visited {
+    text-decoration: none;
+    color: unset;
+}
+
+#sales {
+    padding: 40px 10px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.card {
+    background-color: #283142;
+    border-radius: 12px;
+    padding: 30px 10px;
+}
+
+.title {
+    color: #676FFF;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.control {
+    height: 46px;
+    background-color: #1B2531;
+    border: 1px solid #384459;
+    border-radius: 6px;
+    width: 100%;
+    color: #9AAABE;
+    padding: 10px 21px;
+    font-size: 18px;
+}
+
+.box-control {
+    margin-bottom: 16px;
+    max-width: 300px;
+}
+
+.sales-table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+.sales-table thead {
+    height: 55px;
+    font-size: 16px;
+    color: #e9e9e9;
+    font-weight: 700;
+}
+
+.sales-table tbody {
+    font-size: 14px;
+    font-weight: 400;
+    color: #cfcfcf;
+    text-align: center;
+}
+
+.sales-table tbody tr {
+    height: 74px;
+    border-top: 1px solid #5F6E82;
+
+}
+
+.sales-table tbody tr:hover > td {
+    background-color: #384459;
+}
+
+.sales-table tbody tr:nth-child(odd) { /* sempre que for impar terá o efeito */
+   background-color: #242C3B;
+}
+
+.red-btn {
+    height: 45px;
+    width: 45px;
+    background: rgba(255, 107, 114, 0.1);
+    border: 1px solid #fa454e;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.red-btn:hover {
+    background: rgba(255, 107, 114, 0.3);
+}
+
+.red-btn img {
+    width: 19px;
+}
+
+.btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.show576 {
+    display: none;
+}
+
+.show960 {
+    display: none;
+}
+
+@media (min-width: 576px) {
+    .show576 {
+        display: table-cell;
+    }
+    .card {
+        padding: 35px;
+    }
+    .sales-table tbody tr {
+        height: 55px;
+    }
+    .sales-table tbody {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 960px) {
+    .show960 {
+        display: table-cell;
+    }
 }
