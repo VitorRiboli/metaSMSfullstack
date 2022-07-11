@@ -1,3 +1,5 @@
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import React from 'react'
 import NotificationButton from '../NotificationButton'
 import './styles.css'
@@ -8,10 +10,20 @@ const SalesCard = () => {
             <h2 className="title">Vendas</h2>
             <div >
                 <div className="box-control">
-                    <input className="control" type="text" />
+                    <DatePicker
+                        selected={new Date()}
+                        onChange={(date: Date) => { }}
+                        className="control"
+                        dateFormat="dd/MM/yyyy"
+                    />
                 </div>
                 <div className="box-control">
-                    <input className="control" type="text" />
+                    <DatePicker
+                        selected={new Date()}
+                        onChange={(date: Date) => { }}
+                        className="control"
+                        dateFormat="dd/MM/yyyy"
+                    />
                 </div>
             </div>
 
