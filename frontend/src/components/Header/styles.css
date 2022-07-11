@@ -1,0 +1,39 @@
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(180deg, #102347 0%, #181818 100%);
+    width: 100vw;
+    height: 220px;
+}
+
+.header img {
+    width: 250px;
+    margin: 28px 42px 14px 42px;
+}
+
+.header h1 {
+    color: #ffffff;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.header p {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    color: #ffffff;
+    line-height: 16px;
+    margin-top: 6px;
+    margin-bottom: 28px;
+}
+
+.header a, a:hover, a:visited {
+    text-decoration: none;
+    color: unset;
+}
