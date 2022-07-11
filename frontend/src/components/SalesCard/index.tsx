@@ -1,26 +1,33 @@
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import React from 'react'
+import React, { useState } from 'react'
 import NotificationButton from '../NotificationButton'
 import './styles.css'
 
 const SalesCard = () => {
+    
+    const min = new Date(new Date().setDate(new Date().getDate() - 365));
+    const max = new Date();
+
+    const [minDate, setMinDate] = useState(min);
+    const [maxDate, setMaxDate] = useState(max);
+
     return (
         <div className="card">
             <h2 className="title">Vendas</h2>
             <div >
                 <div className="box-control">
                     <DatePicker
-                        selected={new Date()}
-                        onChange={(date: Date) => { }}
+                        selected={minDate}
+                        onChange={(date: Date) => setMinDate(date)}
                         className="control"
                         dateFormat="dd/MM/yyyy"
                     />
                 </div>
                 <div className="box-control">
                     <DatePicker
-                        selected={new Date()}
-                        onChange={(date: Date) => { }}
+                        selected={maxDate}
+                        onChange={(date: Date) => setMaxDate(date)}
                         className="control"
                         dateFormat="dd/MM/yyyy"
                     />
@@ -91,4 +98,4 @@ const SalesCard = () => {
     )
 }
 
-export default SalesCard
+export default SalesCard;
