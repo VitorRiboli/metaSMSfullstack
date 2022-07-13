@@ -4,12 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.vitor.metasms.entities.Sale;
 import com.vitor.metasms.services.SalesService;
+import com.vitor.metasms.services.SmsService;
 
 /*Vai implementar a API, controller vai disponibilizar os EndPoints que o
  * FrontEnd vai precisar para acessar o BackEnd 
@@ -21,6 +23,9 @@ public class SaleController {
 	
 	@Autowired 
 	private SalesService service;
+	
+	@Autowired
+	private SmsService smsService;
 
 	/*Metodo para disponibilizar as vendas para o frontEnd */
 	@GetMapping /*Anotation para responder via web atraves do HTTP */
@@ -30,4 +35,12 @@ public class SaleController {
 			Pageable pageable) { /*Page vai voltar apenas as 20 primeiras, em um resultado paginado */
 		return service.findSales(minDate, maxDate, pageable);
 	}
+	
+	@GetMapping("/{id}/notification")
+	public void notifySms(@PathVariable Long id) {
+		smsService.sendSms(id); /*Esse metodo envia a mensagem */
+		
+	}
+	
+	
 }
