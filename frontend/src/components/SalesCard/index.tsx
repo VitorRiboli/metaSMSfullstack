@@ -1,8 +1,9 @@
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import NotificationButton from '../NotificationButton'
 import './styles.css'
+import axios from "axios";
 
 const SalesCard = () => {
     
@@ -11,6 +12,13 @@ const SalesCard = () => {
 
     const [minDate, setMinDate] = useState(min);
     const [maxDate, setMaxDate] = useState(max);
+
+    useEffect(() => { /*Fazendo requisição para o backend */
+        axios.get("https://meta-sms.herokuapp.com/sales") // vai retornar um objeto promisse
+            .then(response => {
+                console.log(response.data)
+            })
+    }, []) /*Por padrao, por estar rodando em ambiente DEV ele imprimi duas veses*/
 
     return (
         <div className="card">
