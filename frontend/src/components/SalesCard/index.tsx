@@ -77,7 +77,7 @@ const SalesCard = () => {
                                     <td>R$ ${sale.amount.toFixed(2)}</td>
                                     <td>
                                         <div className="btn-container">
-                                            <NotificationButton />
+                                            <NotificationButton saleId={sale.id}/> {/*Passando a Prop com o id que deve ser chamado dentro da função handleClick*/}
                                         </div>
                                     </td>
                                 </tr>
