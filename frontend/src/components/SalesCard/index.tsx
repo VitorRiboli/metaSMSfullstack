@@ -18,12 +18,18 @@ const SalesCard = () => {
     const [sales, setSales] = useState<Sale[]>([]); //useState tipado que vai ser uma lista [] vazia
 
     useEffect(() => { /*Fazendo requisição para o backend */
-        axios.get(`${BASE_URL}/sales`) // vai retornar um objeto promisse
+        
+        const dmin = minDate.toISOString().slice(0, 10); // essa função vai retornar o horario formata
+        const dmax = maxDate.toISOString().slice(0, 10); // o slice serviu para recorta o que a função toISOstring retornou
+    
+        axios.get(`${BASE_URL}/sales?minDate=${dmin}&maxDate=${dmax}`) // vai retornar um objeto promisse
             .then(response => {
                 setSales(response.data.content);
             })
-    }, []) /*Por padrao, por estar rodando em ambiente DEV ele imprimi duas veses*/
-
+    }, [minDate, maxDate]) /*Por padrao, por estar rodando em ambiente DEV ele imprimi duas veses*/
+    //colacando minDate e o maxDate dentro dos parenteses acima vai configurar o useEffect para sempre atualizar sempre que um deles mudarem, ou seja, configurado para atualizar apos colocar as datas
+    
+    
     return (
         <div className="card">
             <h2 className="title">Vendas</h2>
